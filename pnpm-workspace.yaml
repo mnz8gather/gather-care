@@ -1,0 +1,6 @@
+packages:
+  - 'doc-type-rspack-biome'
+  - 'ecmaset-tsdown'
+  - 'mock-nest-swc'
+  - 'react-vite'
+  - 'typescriptset-tsdown'
