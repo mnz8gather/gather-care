@@ -20,3 +20,19 @@ type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never };
  * ```
  */
 export type XOR<T, U> = (Without<T, U> & U) | (Without<U, T> & T);
+
+/** https://github.com/Microsoft/TypeScript/issues/29729 */
+export type LiteralUnion<T extends string> = T | (string & {});
+
+export type NumberUnion<T extends number> = T | (number & {});
+
+/**
+ * ```
+ * const a = {
+ *   b: 1,
+ *   c: 2,
+ * } as const;
+ * type AWritable = Writable<typeof a>;
+ * ```
+ */
+export type Writable<T> = { -readonly [P in keyof T]: Writable<T[P]> };
